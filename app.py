@@ -3,7 +3,7 @@ import boto3
 import json
 
 app = Flask(__name__)
-boto3.setup_default_session(profile_name='private-admin', region_name='eu-central-1')
+boto3.setup_default_session(region_name='eu-central-1')
 
 @app.route('/<word>/', methods=['POST'])
 def add_word_translation(word:str):
@@ -24,5 +24,10 @@ def get_word(word:str):
     example = response["Item"]["example"]["S"]
     return {"translaiton": translation, "example": example}
 
+@app.route('/', methods = ['GET'])
+def status():
+    return 'OK'
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
