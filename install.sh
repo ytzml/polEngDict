@@ -2,7 +2,7 @@ sudo apt update
 sudo apt install -y git
 sudo apt install -y python3-pip
 sudo apt install -y screen
-sudo apt install -y gunicron
+sudo apt install -y gunicorn
 git clone https://github.com/ytzml/polEngDict.git
 cd polEngDict
 pip3 install -r requirements.txt
